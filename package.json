@@ -6,10 +6,7 @@
   "scripts": {
     "server-dev": "nodemon server/index.js",
     "client-dev": "npm start --prefix client",
-    "start": "concurrently \"npm run server-dev\" \"npm run client-dev\"",
-    "install": "cd client && yarn install",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "start": "concurrently \"npm run server-dev\" \"npm run client-dev\""
   },
   "author": "jesse",
   "license": "ISC",
