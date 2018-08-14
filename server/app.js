@@ -6,7 +6,7 @@ const { DATABASE } = require('./config')
 
 
 mongoose.Promise = global.Promise;
-mongoose.connect(DATABASE)
+mongoose.connect(process.env.MONGODB_URI || DATABASE)
 
 const app = express();
 
