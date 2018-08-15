@@ -5,17 +5,22 @@ const mongoose = require('mongoose');
 const { DATABASE } = require('./config')
 
 
-mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGODB_URI || DATABASE)
 
 const app = express();
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 
-app.use(bodyParser.json());
-
 app.use('/users', require('./routes/users'));
+
+mongoose.Promise = global.Promise;
+
+mongoose.connect(
+    process.env.MONGODB_URI || DATABASE,
+    {
+        useMongoClient: true
+    }
+);
 
 module.exports = app;
 
